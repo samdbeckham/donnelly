@@ -10,7 +10,8 @@
 angular.module('donnellyApp')
     .controller('MainCtrl', function ($scope, $routeParams, Guest) {
         var guestId = $routeParams.guestId;
-        $scope.master = {};
+
+        $scope.submitted = false;
 
         Guest.getById(guestId).then(function(data) {
             $scope.guest = data;
@@ -18,7 +19,8 @@ angular.module('donnellyApp')
             console.warn(e);
         });
         
-        $scope.update = function(guest) {
-            $scope.master = angular.copy(guest);
+        $scope.rsvp = function() {
+            $scope.guest.save();
+            $scope.submitted = true;
         };
     });

@@ -1,7 +1,7 @@
 <div class="jumbotron">
     <h1>Donelly Wedding</h1>
     <p>Some information about the donnelly wedding</p>
-    <form novalidate>
+    <form novalidate ng-hide="submitted">
         <h2>{{ guest.name }}</h2>
         <div class="well">
             I <div class="radio-inline"><label>
@@ -11,9 +11,11 @@
             </label></div> be attending your wedding.
         </div>
         <div class="form-group">
-            <button ng-click="update(guest)" class="btn btn-lg btn-block btn-success" type="submit">RSVP</button>
+            <button ng-click="rsvp()" class="btn btn-lg btn-block btn-success" type="submit">RSVP</button>
         </div>
     </form>
-    <pre>{{guest | json}}</pre>
-    <pre>{{master | json}}</pre>
+    <div ng-show="submitted">
+        <h2>Thanks!</h2>
+        <p>We've stored your response. Visit this page again if you need to change any details</p>
+    </div>
 </div>
