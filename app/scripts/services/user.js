@@ -16,13 +16,11 @@ angular.module('donnellyApp')
         // Instance methods
     }, {
         // Class methods
-
         getById: function(id) {
             var defer = $q.defer();
 
             var query = new Parse.Query(this);
-            query.equalTo('objectId', id);
-            query.find({
+            query.get(id, {
                 success: function(results) {
                     defer.resolve(results);
                 },
@@ -32,7 +30,7 @@ angular.module('donnellyApp')
             });
 
             return defer.promise;
-        }
+        },
     });
  
     // Name property

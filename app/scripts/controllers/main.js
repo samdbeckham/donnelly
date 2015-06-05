@@ -13,7 +13,7 @@ angular.module('donnellyApp')
         $scope.master = {};
 
         Guest.getById(guestId).then(function(data) {
-            $scope.guest = data[0];
+            $scope.guest = data;
         }, function(e) {
             console.warn(e);
         });
