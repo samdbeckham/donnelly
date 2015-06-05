@@ -19,7 +19,7 @@ angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
+      .when('/guest/:guestId', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })

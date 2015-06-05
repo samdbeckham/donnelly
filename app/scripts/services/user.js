@@ -24,7 +24,6 @@ angular.module('donnellyApp')
             query.equalTo('objectId', id);
             query.find({
                 success: function(results) {
-                    console.log('got the guest');
                     defer.resolve(results);
                 },
                 error: function(e) {
