@@ -1,7 +1,14 @@
 $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 // bower:scss
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+@import url(http://fonts.googleapis.com/css?family=Meddon);
+@import url(http://fonts.googleapis.com/css?family=Goudy+Bookletter+1911);
 // endbower
+
+$color__paper: #eee;
+$color__text: #5A6E79;
+$color__primary: #B56C63;
+$color__secondary: #ADB3B1;
 
 .browsehappy {
   margin: 0.2em 0;
@@ -14,8 +21,14 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 html,
 body,
 .container {
-  padding: 0;
-  height: 100%;
+    padding: 0;
+    height: 100%;
+    font-family: 'Goudy Bookletter 1911', serif;
+}
+
+h1 {
+    font-family: 'Meddon', cursive;
+    margin-bottom: 30px;
 }
 
 [ng-view] {
@@ -26,6 +39,54 @@ body,
 }
 
 .jumbotron {
+    background: $color__paper;
+    color: $color__text;
     margin: 0 auto;
     max-width: 42em;
+}
+
+.btn {
+    background: $color__primary;
+    color: $color__paper;
+    transition: background .4s;
+
+    &:hover,
+    &:focus {
+        background: lighten($color__primary, 10%);
+        color: $color__paper;
+    }
+}
+
+strong,
+.flourish {
+    display: block;
+    width: auto;
+    margin: .5em auto;
+}
+
+.flourish {
+    font-family: 'Meddon', cursive;
+    position: relative;
+    
+    @media (min-width: $screen-xs) {
+        &:before,
+        &:after {
+            position: absolute;
+            display: block;
+            content: "";
+            width: 150px;
+            height: 1px;
+            background: $color__text;
+            top: 50%;
+            transform: translateY(-50%); 
+        }
+
+        &:before {
+            left: 0%;
+        }
+
+        &:after {
+            right: 0%;
+        }
+    }   
 }
