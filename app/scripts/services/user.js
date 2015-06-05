@@ -36,13 +36,23 @@ angular.module('donnellyApp')
         }
     });
  
-    // Title property
+    // Name property
     Object.defineProperty(Guest.prototype, 'name', {
       get: function() {
         return this.get('name');
       },
       set: function(aValue) {
         this.set('name', aValue);
+      }
+    });
+ 
+    // Attending property
+    Object.defineProperty(Guest.prototype, 'attending', {
+      get: function() {
+        return this.get('attending');
+      },
+      set: function(aValue) {
+        this.set('attending', aValue);
       }
     });
  
