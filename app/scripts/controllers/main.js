@@ -8,13 +8,15 @@
  * Controller of the donnellyApp
  */
 angular.module('donnellyApp')
-    .controller('MainCtrl', function ($scope) {
+    .controller('MainCtrl', function ($scope, Guest) {
         $scope.master = {};
-        $scope.guest = {
-            name: "Sam Beckham",
-            attending: true 
-        };
 
+        Guest.getById('uT4yM9FyZ9').then(function(data) {
+            $scope.guest = data[0];
+        }, function(e) {
+            console.warn(e);
+        });
+        
         $scope.update = function(guest) {
             $scope.master = angular.copy(guest);
         };
