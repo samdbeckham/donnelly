@@ -17,8 +17,7 @@ $color__secondary: #ADB3B1;
 
 
 html,
-body,
-.container {
+body {
     padding: 0;
     height: 100%;
     font-family: 'Goudy Bookletter 1911', serif;
@@ -29,7 +28,7 @@ h1 {
     margin-bottom: 30px;
 }
 
-[ng-view] {
+.container {
     align-items: center;
     text-align: center;
     display: flex;

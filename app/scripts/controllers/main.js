@@ -8,19 +8,23 @@
  * Controller of the donnellyApp
  */
 angular.module('donnellyApp')
-    .controller('MainCtrl', function ($scope, $routeParams, Guest) {
-        var guestId = $routeParams.guestId;
-
-        $scope.submitted = false;
-
-        Guest.getById(guestId).then(function(data) {
-            $scope.guest = data;
-        }, function(e) {
-            console.warn(e);
-        });
-        
-        $scope.rsvp = function() {
-            $scope.guest.save();
-            $scope.submitted = true;
+    .controller('MainCtrl', function ($scope, Guest) {
+        $scope.startsWith = function(state, viewValue) {
+            return state.substr(0, viewValue.length).toLowerCase() == viewValue.toLowerCase();
         };
+
+        $scope.guests = [
+            {
+                name: 'Sam Beckham'
+            },
+            {
+                name: 'Jor Howes'
+            },
+            {
+                name: 'Jonny Grant'
+            },
+            {
+                name: 'Anth Simpson'
+            },
+        ];
     });
