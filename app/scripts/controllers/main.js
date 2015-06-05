@@ -8,6 +8,14 @@
  * Controller of the donnellyApp
  */
 angular.module('donnellyApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.name = 'Sam Beckham';
-  });
+    .controller('MainCtrl', function ($scope) {
+        $scope.master = {};
+        $scope.guest = {
+            name: "Sam Beckham",
+            attending: true 
+        };
+
+        $scope.update = function(guest) {
+            $scope.master = angular.copy(guest);
+        };
+    });
