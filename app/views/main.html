@@ -4,11 +4,11 @@
     <form action="">
         <div class="form-group">
             <label for="name">What's your name?</label>
-            <input id="name" class="form-control" type="text" name="name">
+            <input id="name" class="form-control" type="text" name="name" value="{{ name }}">
         </div>
         <strong>Will you be attending?</strong>
         <div class="radio"><label>
-            <input type="radio" name="attending" value="true"> Yes
+            <input type="radio" name="attending" value="true" checked> Yes
         </label></div>
         <div class="radio"><label>
             <input type="radio" name="attending" value="false"> No
