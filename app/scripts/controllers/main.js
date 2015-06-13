@@ -9,10 +9,6 @@
  */
 angular.module('donnellyApp')
     .controller('MainCtrl', function ($scope, Guest) {
-        $scope.startsWith = function(state, viewValue) {
-            return state.substr(0, viewValue.length).toLowerCase() == viewValue.toLowerCase();
-        };
-
         $scope.guests = [
             {
                 name: 'Sam Beckham'
