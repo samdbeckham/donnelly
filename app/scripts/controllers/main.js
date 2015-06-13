@@ -9,6 +9,8 @@
  */
 angular.module('donnellyApp')
     .controller('MainCtrl', function ($scope, Guest) {
+        $scope.guest;
+
         Guest.getAll().then(function(data) {
             $scope.guests = data;
         });

@@ -20,6 +20,10 @@ angular.module('donnellyApp').filter('startsWith', function () {
         var matches = [],
             i;
 
+        if (!input) {
+            return;
+        }
+
         for (i = 0; i < input.length; i += 1 ) {
             var key = Object.keys(query)[0];
             if (!query[key]) {

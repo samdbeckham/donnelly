@@ -3,6 +3,5 @@
         <input class="form-control" type="text" ng-model="query" placeholder="Enter your name">
     </div>
     <pre>{{ guests | startsWith: { 'name': query } | limitTo: 1 }}</pre>
-    <pre>{{ guests }}</pre>
     <button ng-click="rsvp()" class="btn btn-lg btn-block" type="submit">RSVP</button>
 </form>
