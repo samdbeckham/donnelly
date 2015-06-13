@@ -16,6 +16,28 @@ angular.module('donnellyApp')
         // Instance methods
     }, {
         // Class methods
+        getAll: function() {
+            var defer = $q.defer(),
+                query = new Parse.Query(this),
+                formatResult = function(data) {
+                    var objects = [],
+                        i;
+                    
+                    for(i = 0; i < data.length; i += 1) {
+                        objects.push(data[i].toJSON());
+                    }
+
+                    return objects;
+                };
+    
+            query.limit(1000);
+            query.ascending('objectId');
+            query.find().then(function querySuccess(result) {
+                defer.resolve(formatResult(result));
+            });
+
+            return defer.promise;
+        },
         getById: function(id) {
             var defer = $q.defer();
 
@@ -52,6 +74,6 @@ angular.module('donnellyApp')
         this.set('attending', aValue);
       }
     });
- 
+
     return Guest;
 });

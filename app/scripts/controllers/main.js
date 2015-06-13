@@ -9,18 +9,7 @@
  */
 angular.module('donnellyApp')
     .controller('MainCtrl', function ($scope, Guest) {
-        $scope.guests = [
-            {
-                name: 'Sam Beckham'
-            },
-            {
-                name: 'Jor Howes'
-            },
-            {
-                name: 'Jonny Grant'
-            },
-            {
-                name: 'Anth Simpson'
-            },
-        ];
+        Guest.getAll().then(function(data) {
+            $scope.guests = data;
+        });
     });
