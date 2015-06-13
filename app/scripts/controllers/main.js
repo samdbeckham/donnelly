@@ -31,7 +31,7 @@ angular.module('donnellyApp')
             }
 
             $scope.guest = results[0];
-        }
+        };
 
 // startsWith: { 'name': query }
 
