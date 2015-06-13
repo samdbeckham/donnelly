@@ -2,7 +2,6 @@
     <div class="form-group">
         <input class="form-control" type="text" ng-model="query" placeholder="Enter your name">
     </div>
-    <pre>{{ guests | filter: { 'name': query } | limitTo: 1 }}</pre>
-    <pre>{{ guests | startsWith: { 'name': query } }}</pre>
+    <pre>{{ guests | startsWith: { 'name': query } | limitTo: 1 }}</pre>
     <button ng-click="rsvp()" class="btn btn-lg btn-block" type="submit">RSVP</button>
 </form>
