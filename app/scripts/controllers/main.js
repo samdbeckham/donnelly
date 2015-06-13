@@ -13,14 +13,24 @@ angular.module('donnellyApp')
             var params = {},
                 results = [];
 
+            if (!$scope.query) {
+                $scope.guest = '';
+                return;
+            }
+
             params[key] = $scope.query;
             results = $filter('startsWith')($scope.guests, params);
 
             if (!results || results.length < 1) {
-                $scope.guest = '';
-            } else {
-                $scope.guest = results[0][key];
+                results = $filter('filter')($scope.guests, params, 'strict');
+
+                if (!results || results.length < 1) {
+                    $scope.guest = '';
+                    return;
+                }
             }
+
+            $scope.guest = results[0];
         }
 
 // startsWith: { 'name': query }

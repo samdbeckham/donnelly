@@ -1,8 +1,10 @@
 <form novalidate>
+    <h1>What's your name?</h1>
     <div class="form-group">
-        <input class="form-control" type="text" ng-model="query" ng-change="search('name')" placeholder="Enter your name">
+        <input class="form-control" type="text" ng-model="query" ng-change="search('name')" placeholder="Enter your name" autofocus>
     </div>
-    <pre>{{ guests | startsWith: { 'name': query } | limitTo: 1 }}</pre>
-    <pre>{{ guest }}</pre>
-    <button ng-click="rsvp()" class="btn btn-lg btn-block" type="submit">RSVP</button>
+    <p ng-show="guest">
+        Are you {{ guest.name }}?
+    </p>
+    <a class="btn btn-lg btn-block" ng-disabled="!guest" href="#/guest/{{ guest.objectId }}">R.S.V.P.</a>
 </form>
