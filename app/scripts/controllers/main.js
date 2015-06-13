@@ -8,19 +8,34 @@
  * Controller of the donnellyApp
  */
 angular.module('donnellyApp')
-    .controller('MainCtrl', function ($scope, $routeParams, Guest) {
-        var guestId = $routeParams.guestId;
+    .controller('MainCtrl', function ($scope, $filter, Guest) {
+        $scope.search = function(key) {
+            var params = {},
+                results = [];
 
-        $scope.submitted = false;
+            if (!$scope.query) {
+                $scope.guest = '';
+                return;
+            }
 
-        Guest.getById(guestId).then(function(data) {
-            $scope.guest = data;
-        }, function(e) {
-            console.warn(e);
+            params[key] = $scope.query;
+            results = $filter('startsWith')($scope.guests, params);
+
+            if (!results || results.length < 1) {
+                results = $filter('filter')($scope.guests, params, 'strict');
+
+                if (!results || results.length < 1) {
+                    $scope.guest = '';
+                    return;
+                }
+            }
+
+            $scope.guest = results[0];
+        }
+
+// startsWith: { 'name': query }
+
+        Guest.getAll().then(function(data) {
+            $scope.guests = data;
         });
-        
-        $scope.rsvp = function() {
-            $scope.guest.save();
-            $scope.submitted = true;
-        };
     });

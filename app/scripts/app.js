@@ -9,21 +9,25 @@
  * Main module of the application.
  */
 angular
-  .module('donnellyApp', [
-    'ngAnimate',
-    'ngCookies',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize',
-    'ngTouch'
-  ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/guest/:guestId', {
-        templateUrl: 'views/guest.html',
-        controller: 'MainCtrl'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
-  });
+    .module('donnellyApp', [
+        'ngAnimate',
+        'ngCookies',
+        'ngResource',
+        'ngRoute',
+        'ngSanitize',
+        'ngTouch'
+    ])
+    .config(function ($routeProvider) {
+        $routeProvider
+            .when('/', {
+                templateUrl: 'views/main.html',
+                controller: 'MainCtrl'
+            })
+            .when('/guest/:guestId', {
+                templateUrl: 'views/guest.html',
+                controller: 'GuestCtrl'
+            })
+            .otherwise({
+                redirectTo: '/'
+            });
+    });
