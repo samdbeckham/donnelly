@@ -31,5 +31,7 @@
 </div>
 <div ng-show="submitted">
     <h2>Thanks!</h2>
-    <p>We've stored your response. Visit this page again if you need to change any details</p>
+    <p ng-if="guest.attending">We'll see you there!</p>
+    <p ng-if="!guest.attending">We're sorry to hear you can't make it.</p>
+    <p>Please come back or reload this page if you need to change your response.</p>
 </div>
