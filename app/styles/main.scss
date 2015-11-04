@@ -9,23 +9,26 @@ $color__primary: #B56C63;
 $color__secondary: #ADB3B1;
 
 .browsehappy {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
+    background: $color__paper;
+    color: $color__text;
+    margin: 0.2em 0;
+    padding: 0.2em 0;
 }
-
 
 html,
 body {
-    padding: 0;
-    height: 100%;
     font-family: 'Goudy Bookletter 1911', serif;
+    height: 100%;
+    padding: 0;
 }
 
 h1 {
     font-family: 'Meddon', cursive;
     margin-bottom: 30px;
+}
+
+hr {
+    border: 2px dashed $color__secondary;
 }
 
 .container {
@@ -86,4 +89,54 @@ strong,
             right: 0%;
         }
     }   
+}
+
+.attending {
+    display: block;
+    font-size: 3em;
+    position: relative;
+
+    &--false {
+        font-size: 2em;
+        margin-bottom: 1em;
+    }
+
+    [type=radio] {
+        display: none;
+
+        &:checked {
+            ~ label {
+                color: $color__text;
+
+                &:after {
+                    background: currentcolor;
+                    border: none;
+                    height: 0.6em;
+                    left: 0.2em;
+                    margin-top: -0.3em;
+                    width: 0.6em;
+                }
+            }
+        }
+    }
+
+    label {
+        color: $color__secondary;
+        cursor: pointer;
+        padding-left: 1.2em;
+        position: relative;
+
+        &:before,
+        &:after {
+            border-radius: 50%;
+            border: 2px solid;
+            content: '';
+            height: 1em;
+            left: 0;
+            margin-top: -.5em;
+            position: absolute;
+            top: 50%;
+            width: 1em;
+        }
+    }
 }
