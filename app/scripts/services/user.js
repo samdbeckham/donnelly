@@ -75,5 +75,15 @@ angular.module('donnellyApp')
       }
     });
 
+    // ceremony property
+    Object.defineProperty(Guest.prototype, 'ceremony', {
+      get: function() {
+        return this.get('ceremony');
+      },
+      set: function(aValue) {
+        this.set('ceremony', aValue);
+      }
+    });
+
     return Guest;
 });
