@@ -1,0 +1,24 @@
+<table class="table table-hover table-bordered">
+    <thead>
+        <tr>
+            <td>Guest Name</td>
+            <td>Is Attending</td>
+            <td>Visited Site</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr
+            ng-repeat="guest in guests"
+            ng-class="{
+                success: guest.attending,
+                danger: !guest.attending && (guest.createdAt !== guest.updatedAt)
+            }"
+        >
+            <td>{{guest.name}}</td>
+            <td ng-if="guest.attending">Yes</td>
+            <td ng-if="!guest.attending">No</td>
+            <td ng-if="guest.createdAt !== guest.updatedAt">Yes</td>
+            <td ng-if="guest.createdAt === guest.updatedAt">No</td>
+        </tr>
+    </tbody>
+</table>

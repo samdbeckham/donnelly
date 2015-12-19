@@ -67,7 +67,7 @@ strong,
 .flourish {
     font-family: 'Meddon', cursive;
     position: relative;
-    
+
     @media (min-width: $screen-xs) {
         &:before,
         &:after {
@@ -78,7 +78,7 @@ strong,
             height: 1px;
             background: $color__text;
             top: 50%;
-            transform: translateY(-50%); 
+            transform: translateY(-50%);
         }
 
         &:before {
@@ -88,7 +88,7 @@ strong,
         &:after {
             right: 0%;
         }
-    }   
+    }
 }
 
 .attending {

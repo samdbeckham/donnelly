@@ -33,8 +33,6 @@ angular.module('donnellyApp')
             $scope.guest = results[0];
         };
 
-// startsWith: { 'name': query }
-
         Guest.getAll().then(function(data) {
             $scope.guests = data;
         });
